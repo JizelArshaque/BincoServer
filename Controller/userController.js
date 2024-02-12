@@ -8,19 +8,19 @@ exports.resgisterUserController = async (req,res)=>{
     try{
         const existingUser = await users.findOne({email})
         if(existingUser){
-            console.log(existingUser);
+            // console.log(existingUser);
             res.status(402).json("Account Already Exists!")
         }else{
             const newUser = new users({
                 username, email , password
             })
-            console.log(newUser);
+            // console.log(newUser);
             await newUser.save()
 
             res.status(201).json(newUser)
         }
     }catch(error){
-        console.log(error);
+        // console.log(error);
         res.status(418).json(error)
     }
 

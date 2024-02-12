@@ -2,6 +2,9 @@ const express = require('express')
 const router = new express.Router()
 const userController = require('../Controller/userController')
 const itemController = require('../Controller/itemController')
+const wishlistController = require('../Controller/wishlistController')
+const jwtMiddleware = require('../Middleware/jwtmiddleware')
+
 
 
 // register post
@@ -32,6 +35,18 @@ router.get('/getsingle/item/:id',itemController.singleItemController)
 // update
 
 router.put('/update/item/:id',itemController.updateItemController)
+
+// addtowishlist
+
+router.post('/add/wishlist',jwtMiddleware,wishlistController.addToWishlistController)
+
+// getfrom wishlist
+
+router.get('/getwishlist/items',jwtMiddleware,wishlistController.getFromWishlistController)
+
+// remove from wishlist items
+
+router.delete('/remove/wishlistItem/:id',jwtMiddleware,wishlistController.removefromWishlistController)
 
 
 
