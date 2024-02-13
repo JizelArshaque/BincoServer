@@ -3,6 +3,9 @@ const router = new express.Router()
 const userController = require('../Controller/userController')
 const itemController = require('../Controller/itemController')
 const wishlistController = require('../Controller/wishlistController')
+const orderController = require('../Controller/orderController')
+
+const cartController = require('../Controller/cartController')
 const jwtMiddleware = require('../Middleware/jwtmiddleware')
 
 
@@ -48,6 +51,30 @@ router.get('/getwishlist/items',jwtMiddleware,wishlistController.getFromWishlist
 
 router.delete('/remove/wishlistItem/:id',jwtMiddleware,wishlistController.removefromWishlistController)
 
+// add to wishlist
+
+router.post('/cart/item',jwtMiddleware,cartController.addTocartController)
+
+// get from wishlist
+
+router.get('/getcart/item',jwtMiddleware,cartController.getCartController)
+
+// remove from cart
+
+router.delete('/removecart/item/:id',cartController.removeFromcartController)
+
+// increment quantity
+router.get('/quantityInc/:id',cartController.incrementQuantityController)
+
+// decrement quantity
+router.get('/quantityDec/:id',cartController.decrementQuantityController)
+
+// emptycart
+router.delete('/cart/empty',jwtMiddleware,cartController.cartgoneController)
+
+// ordercreations
+
+router.post('/order/creation',jwtMiddleware,orderController.addOrderController)
 
 
 

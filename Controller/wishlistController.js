@@ -3,7 +3,7 @@ const wishlists = require('../Model/wishlistModel')
 exports.addToWishlistController= async(req,res)=>{
     const {id, name, description, price, imageUrl} = req.body
     const userId = req.payload
-    console.log(userId);
+    // console.log(userId);
 
     try {
 
