@@ -18,6 +18,9 @@ router.post('/register/user',userController.resgisterUserController)
 
 router.post('/login/user',userController.loginUserController)
 
+// getuserdetails
+router.get('/getdets/:email',userController.getUserDetails)
+
 // add Item
 
 
@@ -75,6 +78,12 @@ router.delete('/cart/empty',jwtMiddleware,cartController.cartgoneController)
 // ordercreations
 
 router.post('/order/creation',jwtMiddleware,orderController.addOrderController)
+
+// get orders
+router.get('/get/order',jwtMiddleware,orderController.getOrderController)
+
+// get all orders
+router.get('/get/all/order',jwtMiddleware,orderController.getAllOrdersController)
 
 
 

@@ -47,3 +47,16 @@ exports.loginUserController =async(req,res)=>{
 
 }
 
+exports.getUserDetails = async(req,res)=>{
+    email = req.params.email
+    console.log('hiiiL:', email);
+    try {
+        const dets = await users.find({email})
+        console.log(dets);
+        res.status(200).json(dets)
+    } catch (error) {
+        res.status(409).json(error)
+        console.log('FFed');
+        
+    }
+}
