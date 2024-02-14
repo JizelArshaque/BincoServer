@@ -37,3 +37,21 @@ exports.getAllOrdersController = async(req,res)=>{
         
     } 
 }
+
+exports.orderUpdateController = async(req,res)=>{
+    const {id} = req.params
+    const item = req.body
+    const options = { new : true}
+
+    // console.log("id:",id,"item:", item);
+    
+
+    try {
+        const updatedOrder = await orders.findByIdAndUpdate( id , item , options)
+        // console.log("hshshs",updatedOrder);
+        res.status(231).json(updatedOrder)
+        
+    } catch (error) {
+        res.status(432).json(error)
+    }
+}

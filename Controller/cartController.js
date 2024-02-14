@@ -10,7 +10,7 @@ exports.addTocartController = async(req,res)=>{
         if(existingItem){
             existingItem.quantity += 1
             existingItem.TotalPrice = existingItem.price * existingItem.quantity
-            console.log(existingItem);
+            // console.log(existingItem);
 
             await existingItem.save()
             res.status(201).json('item quantity incremnted by 1!')
@@ -19,7 +19,7 @@ exports.addTocartController = async(req,res)=>{
                 userId, id, name, description, price, imageUrl, quantity:1 , TotalPrice:price
             })
             await newItem.save()
-            console.log(newItem);
+            // console.log(newItem);
             res.status(201).json('item Added to your cart!')
 
         }

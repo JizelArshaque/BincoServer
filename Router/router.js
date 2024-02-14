@@ -85,6 +85,9 @@ router.get('/get/order',jwtMiddleware,orderController.getOrderController)
 // get all orders
 router.get('/get/all/order',jwtMiddleware,orderController.getAllOrdersController)
 
+// update order
+router.put('/order/update/:id',orderController.orderUpdateController)
+
 
 
 module.exports = router
